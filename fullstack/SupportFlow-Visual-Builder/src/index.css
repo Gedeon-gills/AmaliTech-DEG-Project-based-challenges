@@ -1,9 +1,15 @@
 @import "tailwindcss";
 
-:root {
-  --primary: #3B82F6;
-  --node-bg: #ffffff;
-  --node-border: #6366F1;
-  --chat-user: #3B82F6;
-  --chat-bot: #F1F5F9;
+@layer base {
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+  h1, h2, h3, h4 {
+    font-family: 'Manrope', sans-serif;
+  }
+}
+
+.canvas-grid {
+  background-image: radial-gradient(#cbd5e1 0.5px, transparent 0.5px);
+  background-size: 24px 24px;
 }
