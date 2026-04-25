@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+:root {
+  --primary: #3B82F6;
+  --node-bg: #ffffff;
+  --node-border: #6366F1;
+  --chat-user: #3B82F6;
+  --chat-bot: #F1F5F9;
+}
