@@ -6,7 +6,7 @@ Design, visualize, and test automated customer support conversation flows throug
 
 ## 🌐 Live Demo
 
-👉 [https://your-app.vercel.app](https://your-app.vercel.app)
+👉 link: https://supportflow-chi.vercel.app
 
 ---
 
@@ -85,7 +85,7 @@ Nodes are stored in a flat map for O(1) lookup:
 
 ## 🎨 Design System
 
-👉 [Figma File](https://your-figma-link)
+👉 figmafile: https://www.figma.com/design/86E7XvQn4fovNUcf1HLO6q/Untitled?node-id=0-1&t=SW9q8L0rCJlJhwfK-1
 
 Designed before implementation to ensure visual consistency.
 
