@@ -1,31 +1,26 @@
-# DEG Project Challenges
+# DEG Training Project Submission
 
-This repository contains the DEG training project challenges across multiple tracks:
+This repository contains my submission for the DEG Fullstack Engineering Challenge.
 
-- Backend
-- Data Engineering
-- Fullstack
-- QA
-- DevOps
+---
 
-Each challenge is self-contained inside its folder and includes its own README with task details.
+## 📌 Project Overview
 
-## Applicant Guide
+I selected and completed the **Fullstack SupportFlow Visual Builder** challenge.
 
-If you are applying, start by choosing the challenge folder that matches your track or assigned task. Then open the README inside that folder.
+This project is a visual decision-tree editor that allows users to:
+- Build conversation flows visually
+- Edit nodes in real time
+- Simulate chatbot behavior in preview mode
 
-The challenge-specific README files include:
+---
 
-- Challenge description and requirements
-- Expected deliverables
-- Submission guidelines and deadlines (where applicable)
-- Any setup instructions or constraints
+## 🚀 Live Demo
 
-## Where To Start
+https://supportflow-chi.vercel.app
 
-1. Open the relevant track folder (for example, `backend/`, `data-engineering/`, or `fullstack/`).
-2. Enter the challenge project folder.
-3. Read that project's `README.md` completely before starting work.
-4. Follow the listed deliverables and submission instructions exactly.
+---
 
-If instructions differ between this root README and a challenge README, treat the challenge README as the source of truth.
+## 📁 Project Location
+
+All source code for the submission is located in:full-stack folder 
