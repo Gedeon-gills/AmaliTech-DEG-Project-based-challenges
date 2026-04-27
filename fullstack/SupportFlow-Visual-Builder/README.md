@@ -1,47 +1,110 @@
 # SupportFlow Visual Builder
 
-SupportFlow Visual Builder is a modern, responsive, and robust React application designed to help customer support teams easily build, visualize, and test automated "Help Bots" without needing to fiddle with messy spreadsheets. It features a fully custom Node rendering and Bezier curve connection engine.
+Design, visualize, and test automated customer support conversation flows through an interactive canvas — no spreadsheets, no backend required.
 
-## Features
+---
 
-- **Visual Graph**: See your conversation logic as a highly connected flowchart.
-- **Real-Time Editor**: Clicking a Node opens an editing properties panel. Edit question text and options on-the-fly and see them instantly update on the canvas.
-- **Preview Mode**: Test the bot experience instantly! Toggle the "Preview" mode from the top right to start a chat and traverse the nodes you've configured.
-- **Custom Connectors (Constraint Met)**: SVG connection logic using cubic Bezier curves was completely custom built from scratch to calculate anchor positions between parent and child nodes. No external graphing libraries (like react-flow or jsPlumb) were used.
-- **Custom UI (Constraint Met)**: The user interface components (Node Cards, Sidebars, Modals) were entirely built using Tailwind CSS v4 to exactly match the specific design tokens. No pre-built component libraries (like MUI or Bootstrap) were utilized.
+## 🌐 Live Demo
 
-## Wildcard Feature: Dynamic Workspace (Drag & Scroll)
+👉 [https://your-app.vercel.app](https://your-app.vercel.app)
 
-To make this tool truly indispensable, I implemented an enhanced **Dynamic Workspace**. 
-- **Draggable Nodes**: Users can click the drag-handle on any node to reposition it freely across the canvas. The Bezier connectors recalculate and redraw in real-time as the node is moved. 
-- **Infinite Scrolling**: The canvas is no longer constrained to a single screen view. Users can pan/scroll across a massive `3000x3000px` workspace to accommodate huge decision trees.
+---
 
-**Why this adds value:** A visual builder is only useful if it can grow with the user's needs. As Support flowcharts expand to handle dozens of edge cases, being able to physically reorganize clusters of nodes and scroll around a larger canvas prevents the UI from becoming cluttered, reducing cognitive load for the non-technical managers using the tool.
+## 🛠 Tech Stack
 
-## Technical Stack
+| Layer     | Technology             |
+|-----------|------------------------|
+| Framework | React 19 + Vite        |
+| Styling   | Tailwind CSS v4        |
+| Rendering | SVG (custom engine)    |
+| State     | In-memory (no backend) |
 
-- **Framework**: React 19 + Vite
-- **Styling**: Tailwind CSS v4 (Using custom design tokens via PostCSS)
-- **State Management**: React Hooks (`useState`, `useEffect`)
-- **Data Source**: Local `flow_data.json`
+---
 
-## Setup Instructions
+## ✨ Features
 
-1. Ensure you have Node.js installed.
-2. Clone this repository and navigate to the root directory.
-3. Install the dependencies:
-   ```bash
-   npm install
-   ```
-4. Start the development server:
-   ```bash
-   npm run dev
-   ```
-5. Open your browser to the local URL (usually `http://localhost:5173`).
+### 🔹 Visual Graph
+- Renders conversation logic as an interactive flowchart
+- Nodes positioned using absolute coordinates from JSON
+- Parent-child relationships connected with smooth SVG curves
 
-## Project Structure
+### 🔹 Real-Time Editor
+- Click any node to edit its content instantly
+- Changes reflect immediately on the canvas — no reloads
 
-- `/src/components/Editor`: Contains the Editor Canvas, Node Cards, SideNav, PropertiesPanel, and the custom SVGConnectionEngine.
-- `/src/components/Preview`: Contains the Chat Preview simulator.
-- `/src/data`: Holds the `flow_data.json` local configuration file.
-- `tailwind.config.js`: Contains all the extracted design tokens used to style the application.
+### 🔹 Preview Mode (Flow Runner)
+- Simulates real chatbot interaction starting from the root node
+- Traverses the flow dynamically based on user choices
+- Includes a restart option at the end of the flow
+
+### 🔹 Custom Connection Engine *(Constraint Met)*
+- Built from scratch using SVG cubic Bézier curves
+- Connector positions recalculate dynamically as nodes move
+- No external libraries — no react-flow, jsPlumb, or similar
+
+### 🔹 Custom UI Components *(Constraint Met)*
+- Every component built from scratch: Node Cards, Sidebar, Canvas, Modals
+- Styled with Tailwind CSS v4 and custom design tokens
+- No Bootstrap, Material UI, or any third-party UI library
+
+### 🌟 Wildcard: Dynamic Workspace
+- Freely draggable nodes for organizing complex flows
+- Connectors redraw in real time as nodes are repositioned
+- Infinite scrollable canvas (3000×3000px) supports large decision trees
+
+---
+
+## 🧠 Graph & Traversal Logic
+
+The conversation flow is modeled as a **directed graph**. Each node contains:
+
+```json
+{
+  "id": "node_1",
+  "question": "How can we help you?",
+  "options": [
+    { "label": "Billing", "target": "node_2" },
+    { "label": "Technical", "target": "node_3" }
+  ]
+}
+```
+
+Nodes are stored in a flat map for O(1) lookup:
+
+```js
+{ [id]: node }
+```
+
+**Preview Mode traversal:**
+1. Start at the root node
+2. Display its question and options
+3. On option select, resolve the next node via `target` ID
+4. Repeat until a leaf node (no options) is reached
+
+---
+
+## 🎨 Design System
+
+👉 [Figma File](https://your-figma-link)
+
+Designed before implementation to ensure visual consistency.
+
+| Token     | Purpose                 |
+|-----------|-------------------------|
+| Primary   | Actions & focus states  |
+| Secondary | Background layers       |
+| Accent    | Active / selected state |
+| Error     | Validation feedback     |
+
+Philosophy: clean, minimal, high-contrast — built for non-technical users.
+
+---
+
+## 🚀 Getting Started
+
+```bash
+npm install
+npm run dev
+```
+
+Open [http://localhost:5173](http://localhost:5173) in your browser.
