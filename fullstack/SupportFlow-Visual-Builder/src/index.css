@@ -1,15 +1,9 @@
 @import "tailwindcss";
+@config "../tailwind.config.js";
 
-@layer base {
-  body {
-    font-family: 'Inter', system-ui, sans-serif;
+@layer utilities {
+  .canvas-grid {
+    background-image: radial-gradient(#cbd5e1 0.5px, transparent 0.5px);
+    background-size: 24px 24px;
   }
-  h1, h2, h3, h4 {
-    font-family: 'Manrope', sans-serif;
-  }
-}
-
-.canvas-grid {
-  background-image: radial-gradient(#cbd5e1 0.5px, transparent 0.5px);
-  background-size: 24px 24px;
 }
